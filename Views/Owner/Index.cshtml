@@ -1,0 +1,21 @@
+@model List<Owner>
+<h2>Check out some of our owners!</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Number of Dogs</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var owner in Model)
+    {
+        <tr>
+            <td><a asp-controller="Owner" asp-action="Show" asp-route-ownerId="@owner.OwnerId">@owner.FullName</a></td>
+            <td>@owner.Age</td>
+            <td>@owner.Dogs.Count</td>
+        </tr>
+    }
+    </tbody>
+</table>

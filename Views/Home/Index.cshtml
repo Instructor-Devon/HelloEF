@@ -1,0 +1,51 @@
+@model LogRegModel
+<form asp-action="Create" asp-controller="Home" method="post" class="logreg">
+    <h2>Register</h2>
+    <div class="form-group">
+        <span asp-validation-for="Register.FirstName"></span>
+        <label asp-for="Register.FirstName"></label>
+        <input class="form-control" asp-for="Register.FirstName">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Register.LastName"></span>
+        <label asp-for="Register.LastName"></label>
+        <input class="form-control" asp-for="Register.LastName">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Register.DOB"></span>
+        <label asp-for="Register.DOB"></label>
+        <input class="form-control" asp-for="Register.DOB">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Register.Email"></span>
+        <label asp-for="Register.Email"></label>
+        <input class="form-control" asp-for="Register.Email">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Register.Password"></span>
+        <label asp-for="Register.Password"></label>
+        <input class="form-control" asp-for="Register.Password">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Register.Confirm"></span>
+        <label asp-for="Register.Confirm"></label>
+        <input class="form-control" asp-for="Register.Confirm">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Register">
+</form>
+<form asp-action="Login" asp-controller="Home" method="post" class="logreg">
+    <h2>Login</h2>
+    
+    <div class="form-group">
+        <span asp-validation-for="Login.EmailAttempt"></span>
+        <label asp-for="Login.EmailAttempt"></label>
+        <input class="form-control" asp-for="Login.EmailAttempt">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Login.PasswordAttempt"></span>
+        <label asp-for="Login.PasswordAttempt"></label>
+        <input class="form-control" asp-for="Login.PasswordAttempt">
+    </div>
+   
+    <input class="btn btn-primary" type="submit" value="Login">
+</form>

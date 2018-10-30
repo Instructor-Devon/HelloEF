@@ -1,0 +1,40 @@
+@model Dog
+<h1>@Model.Name</h1>
+<h4><strong>Created: </strong>@Model.CreatedAt</h4>
+<h4><strong>Last Updated: </strong>@Model.UpdatedAt</h4>
+<h4><strong>Owner: </strong><a asp-controller="Owner" asp-action="Show" asp-route-ownerId="@Model.Owner.OwnerId">@Model.Owner.FullName</a></h4>
+<hr>
+<h4>Update the Dog</h4>
+<form asp-action="Update" asp-controller="Dog" asp-route-dogId="@Model.DogId" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Breed"></span>
+        <label asp-for="Breed"></label>
+        <input asp-for="Breed">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Weight"></span>
+        <label asp-for="Weight"></label>
+        <input asp-for="Weight">
+    </div>
+    <div class="form-group">
+        <label asp-for="OwnerId"></label>
+        <select asp-for="OwnerId">
+        @foreach(var owner in ViewBag.OtherOwners)
+        {
+            <option value="@owner.OwnerId">@owner.FullName</option>
+        }
+        </select>
+    </div>
+    <input type="submit" value="Update">
+</form>
+<hr>
+<h3>Schedule a Walk!</h3>
+<a href=""></a>
+<hr>
+<h4>Delete the Dog</h4>
+<a asp-controller="Dog" asp-action="Delete" asp-route-dogId="@Model.DogId"><button>DELETE</button></a>

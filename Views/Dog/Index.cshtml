@@ -1,0 +1,28 @@
+﻿@model List<Dog>
+<a asp-controller="Dog" asp-action="New">Add a dog!</a>
+<hr>
+<a asp-controller="Walk" asp-action="New">Schedule a Walk</a>
+<h3>All Dogs:</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Weight</th>
+            <th>Date Added</th>
+            <th>Owner</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var dog in Model)
+    {
+        <tr>
+            <td><a asp-controller="Dog" asp-action="Show" asp-route-dogId="@dog.DogId">@dog.Name</a></td>
+            <td>@dog.Breed</td>
+            <td>@dog.Weight</td>
+            <td>@dog.CreatedAt.ToString("g")</td>
+            <td><a asp-controller="Owner" asp-action="Show" asp-route-ownerId="@dog.Owner.OwnerId">@dog.Owner.FullName</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

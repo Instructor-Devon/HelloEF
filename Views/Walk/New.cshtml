@@ -1,0 +1,29 @@
+@model Walk
+<h2>Schedule a Walk</h2>
+<form asp-action="Create" asp-controller="Walk" method="post">
+    <div class="form-group">
+        <select asp-for="DogId">
+        @foreach(var dog in ViewBag.Dogs)
+        {
+            <option value="@dog.DogId">@dog.Name</option>
+        }    
+        </select>
+    </div>
+    <input type="hidden" asp-for="OwnerId" value="@ViewBag.User">
+    <div class="form-group">
+        <span asp-validation-for="StartTime"></span>
+        <label asp-for="StartTime"></label>
+        <input asp-for="StartTime">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Time"></span>
+        <label asp-for="Time"></label>
+        <input asp-for="Time">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Duration"></span>
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration">
+    </div>
+    <input type="submit" value="Schedule">
+</form>

@@ -1,0 +1,29 @@
+@model Dog
+<h2>Add a new dog</h2>
+<form asp-action="Create" asp-controller="Dog" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Breed"></span>
+        <label asp-for="Breed"></label>
+        <input asp-for="Breed">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Weight"></span>
+        <label asp-for="Weight"></label>
+        <input asp-for="Weight">
+    </div>
+    <div class="form-group">
+        <label asp-for="OwnerId"></label>
+        <select asp-for="OwnerId">
+        @foreach(var owner in ViewBag.Owners)
+        {
+            <option value="@owner.OwnerId">@owner.FullName</option>
+        }
+        </select>
+    </div>
+    <input type="submit" value="Add">
+</form>
